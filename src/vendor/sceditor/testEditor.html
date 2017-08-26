@@ -1,0 +1,22 @@
+<html>
+<head>
+	<script
+		  src="https://code.jquery.com/jquery-3.1.0.min.js"
+		  integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+		  crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="minified/themes/default.min.css" />
+	<script src="minified/jquery.sceditor.bbcode.min.js"></script>
+</head>
+<body>
+	<textarea></textarea>
+	<script>
+		$(function() {
+			// Replace all textarea tags with SCEditor
+			$('textarea').sceditor({
+				plugins: 'xhtml',
+				style: 'minified/jquery.sceditor.default.min.css'
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+import { Injectable }    from '@angular/core';
+import { Headers, Http } from '@angular/http';
+
+import 'rxjs/add/operator/toPromise';
+
+import { Book } from './book';
+
+@Injectable()
+export class BooksService {
+
+  private headers = new Headers({'Content-Type': 'application/json'});
+  private booksUrl = 'http://localhost:8080/books';  // URL to web api
+
+  constructor(private http: Http) { }
+
+  getBooks(): Promise<Book[]> {
+    return this.http.get(this.booksUrl)
+               .toPromise()
+               .then(response => response.json() as Book[])
+               .catch(this.handleError);
+  }
+
+  getBook(id: number): Promise<Book> {
+    const url = `${this.booksUrl}/${id}`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json() as Book)
+      .catch(this.handleError);
+  }
+
+  create(book: Book): Promise<Book> {
+    return this.http
+      .post(this.booksUrl, JSON.stringify(book), {headers: this.headers})
+      .toPromise()
+      .then(res => res.json() as Book)
+      .catch(this.handleError);
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); // for demo purposes only
+    return Promise.reject(error.message || error);
+  }
+}
