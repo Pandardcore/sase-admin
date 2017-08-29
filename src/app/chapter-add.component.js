@@ -24,7 +24,7 @@ var ChapterAddComponent = (function () {
     }
     ChapterAddComponent.prototype.ngOnInit = function () {
         this.chapterContent = new chapterContent_1.ChapterContent();
-        this.chapterContent.chapter.bookId = this.route.params.value['id'];
+        this.chapterContent.chapter.bookId = this.route.params['id'];
     };
     ChapterAddComponent.prototype.createChapter = function () {
         var _this = this;
