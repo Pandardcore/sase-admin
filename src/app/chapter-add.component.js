@@ -23,8 +23,11 @@ var ChapterAddComponent = (function () {
         this.location = location;
     }
     ChapterAddComponent.prototype.ngOnInit = function () {
-        this.chapterContent = new chapterContent_1.ChapterContent();
-        this.chapterContent.chapter.bookId = this.route.params['id'];
+        var _this = this;
+        this.route.params.subscribe(function (params) {
+            _this.chapterContent = new chapterContent_1.ChapterContent();
+            _this.chapterContent.chapter.bookId = params['id'];
+        });
     };
     ChapterAddComponent.prototype.createChapter = function () {
         var _this = this;

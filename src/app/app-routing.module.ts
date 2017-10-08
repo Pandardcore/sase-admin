@@ -1,7 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { RouterModule, Routes }   from '@angular/router';
 
-import { CharactersComponent }  from './characters.component';
 import { BooksComponent }  from './books.component';
 import { BookDetailsComponent } from './book-details.component';
 import { BookAddComponent } from './book-add.component';

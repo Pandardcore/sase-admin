@@ -11,11 +11,7 @@ import { BooksComponent }  from './books.component';
 import { BookDetailsComponent } from './book-details.component';
 import { BookAddComponent } from './book-add.component';
 import { ChapterAddComponent } from './chapter-add.component';
-import { CharactersComponent }  from './characters.component';
-import { CharactersSearchComponent }  from './characters-search.component';
-import { BonusComponent }  from './bonus.component';
 
-import { CharactersService }  from './characters.service';
 import { BooksService }  from './books.service';
 import { ChaptersService }  from './chapters.service';
 
@@ -33,13 +29,9 @@ import { ChaptersService }  from './chapters.service';
     BooksComponent,
     BookDetailsComponent,
     BookAddComponent,
-    ChapterAddComponent,
-    CharactersComponent,
-    CharactersSearchComponent,
-    BonusComponent
+    ChapterAddComponent
   ],
   providers: [
-    CharactersService,
     BooksService,
     ChaptersService
   ],

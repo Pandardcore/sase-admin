@@ -25,8 +25,10 @@ export class ChapterAddComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.chapterContent = new ChapterContent();
-    this.chapterContent.chapter.bookId = this.route.params['id'];
+    this.route.params.subscribe((params: Params) => {
+        this.chapterContent = new ChapterContent();
+        this.chapterContent.chapter.bookId = params['id'];
+      });
   }
 
   createChapter() {

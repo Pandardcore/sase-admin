@@ -24,9 +24,9 @@ var BookDetailsComponent = (function () {
     }
     BookDetailsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.route.params
-            .switchMap(function (params) { return _this.booksService.getBook(+params['id']); })
-            .subscribe(function (book) { return _this.book = book; });
+        this.route.params.subscribe(function (params) {
+            _this.booksService.getBook(+params['id']).then(function (book) { return _this.book = book; });
+        });
     };
     BookDetailsComponent.prototype.newChapter = function () {
         this.router.navigate(['/books', this.book.id, 'newChapter']);
